@@ -20,5 +20,6 @@ jobs:
         uses: actions/checkout@master
       - name: Check env
         run: |
+          env
           echo "SHELL:${SHELL} RCT_NO_LAUNCH_PACKAGER:${RCT_NO_LAUNCH_PACKAGER}"
 
