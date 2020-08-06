@@ -1,0 +1,24 @@
+name: CI
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  beta:
+    name: Beta
+    runs-on: macOS-latest
+
+    strategy:
+      matrix:
+        destination: ['platform=iOS Simulator,OS=13.1,name=iPhone 8']
+        xcode: ['/Applications/Xcode_11.6.app/Contents/Developer']
+        node-version: [14.6.0]
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Check env
+        run: |
+          echo "SHELL:${SHELL} RCT_NO_LAUNCH_PACKAGER:${RCT_NO_LAUNCH_PACKAGER}"
+
